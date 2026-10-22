@@ -6,7 +6,7 @@ Front-End Development Internship projects completed at Internlytic Technologies 
 
 | Week | Task | Links |
 |------|------|-------|
-| 1 | Professional LinkedIn Announcement | [LinkedIn Post](https://www.linkedin.com/posts/YOUR-POST-LINK) |
+| 1 | Professional LinkedIn Announcement | [LinkedIn Post](https://lnkd.in/p/dcekDPrk) |
 | 2 | [3D Interactive Personal Portfolio](./week-2-portfolio) | [View Demo](https://portfolio-fizaishaq-two-17.vercel.app/) |
 | 3 | [GitHub Profile Finder](./week-3-github-finder) | [View Demo](YOUR-WEEK-3-LINK) |
 | 4 | [Internlytic Projects Showcase](./week-4-projects-showcase) | [View Demo](YOUR-WEEK-4-LINK) |
