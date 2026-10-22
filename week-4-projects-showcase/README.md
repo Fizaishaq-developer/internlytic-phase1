@@ -1,179 +1,154 @@
 # Internlytic Technologies — Phase 1 Intern Projects Showcase
 
-A polished, responsive web application showcasing Phase 1 intern projects at Internlytic Technologies. Built with React, Vite, TypeScript, and Tailwind CSS.
+A modern, responsive web application showcasing intern projects across multiple learning and development tracks. Built with React, Vite, TypeScript, and Tailwind CSS.
+
+**[View Live Demo](https://internlytic-phase1-bwt5.vercel.app/)**
+
+## Project Overview
+
+The Intern Projects Showcase provides a centralized platform for exploring projects across Front-End Development, Prompt Engineering, Data Analytics, and UI/UX Design.
+
+Users can browse project cards, search by project title or intern name, filter projects by track, and view detailed project information through an interactive modal.
+
+The current version uses fictional sample data for demonstration purposes and does not represent actual company submissions or approved intern projects.
 
 ## Features
 
-- **Professional Navigation Bar** — Branded with "Internlytic Technologies" text, smooth-scroll nav links, and a responsive mobile menu.
-- **Hero Section** — Introduces the Phase 1 Intern Projects Showcase with animated entry, stats, and call-to-action buttons.
-- **Project Gallery** — Responsive card grid displaying project title, thumbnail, intern name, internship track, short description, technologies, and live/GitHub links.
-- **Search** — Real-time search by project title or intern name with a clear button.
-- **Track Filters** — Filter by Front-End Development, Prompt Engineering, Data Analytics, or UI/UX Design. Includes an "All Projects" option.
-- **Reset Filters** — One-click reset of search and filter state.
-- **Project Details Modal** — Full-screen accessible modal with full description, technologies, valid project links, and keyboard/Escape support.
-- **State Handling** — Loading spinner, empty gallery, no search results, and error states with retry.
-- **Sample Data** — 8 fictional sample projects across 4 tracks, clearly labeled as demo data.
-- **Responsive Design** — Optimized for mobile, tablet, and desktop viewports.
-- **Accessibility** — Keyboard navigation, ARIA labels, focus-visible outlines, and Escape-to-close modal.
+- **Responsive Navigation:** Branded navigation bar with smooth-scroll links and a mobile-friendly menu.
+- **Hero Section:** Introduction to the showcase with animated content, statistics, and call-to-action buttons.
+- **Project Gallery:** Responsive cards displaying project titles, thumbnails, intern names, internship tracks, descriptions, technologies, and available links.
+- **Real-Time Search:** Search projects by title or intern name.
+- **Track-Based Filters:** Filter projects by Front-End Development, Prompt Engineering, Data Analytics, or UI/UX Design.
+- **Reset Filters:** Clear the search query and selected filters with one action.
+- **Project Details Modal:** View full descriptions, technologies, and available project links.
+- **Loading and Empty States:** Helpful feedback for loading, empty galleries, and searches with no matching results.
+- **Error Handling:** Error feedback and retry options where applicable.
+- **Accessibility:** Keyboard navigation, ARIA labels, visible focus indicators, and Escape-to-close modal support.
+- **Responsive Design:** Layouts optimized for mobile, tablet, and desktop screens.
 
-## Brand Palette
+## Project Tracks
 
-| Color            | Hex       | Usage                         |
-|------------------|-----------|-------------------------------|
-| Teal Green       | `#18B59A` | Primary accent, buttons       |
-| Deep Blue-Green  | `#073A40` | Text, headings, footer        |
-| White            | `#FFFFFF` | Cards, nav background          |
-| Light Background | `#EAF7F4` | Page background, subtle fills  |
+| Track | Description |
+|---|---|
+| Front-End Development | Websites and interactive web applications |
+| Prompt Engineering | Prompt design and generative AI workflows |
+| Data Analytics | Data exploration and analytical projects |
+| UI/UX Design | User interface and user experience concepts |
 
-## Sample Data Structure
+## Tech Stack
 
-All sample data lives in `src/data/projects.ts`. Each project follows this structure:
+- **React** — Component-based user interface
+- **Vite** — Development server and build tooling
+- **TypeScript** — Type safety and maintainable code
+- **Tailwind CSS** — Responsive styling
+- **Lucide React** — Interface icons
 
-```typescript
-interface Project {
-  id: string;                  // unique identifier
-  title: string;               // project name
-  internName: string;          // intern's full name
-  track: ProjectTrack;         // one of: Front-End Development | Prompt Engineering | Data Analytics | UI/UX Design
-  shortDescription: string;    // 1-2 sentence summary for cards
-  fullDescription: string;      // detailed description for modal
-  technologies: string[];      // tech stack array
-  thumbnail: string;           // image URL
-  links: {
-    live?: string;             // optional live demo URL
-    github?: string;           // optional GitHub URL
-  };
-}
+## Design System
+
+The application uses a clean visual style with a teal-green accent palette.
+
+| Color | Hex Code | Usage |
+|---|---|---|
+| Teal Green | `#18B59A` | Primary accents and buttons |
+| Deep Blue-Green | `#073A40` | Headings, text, and footer |
+| White | `#FFFFFF` | Cards and navigation |
+| Light Background | `#EAF7F4` | Page background and subtle surfaces |
+
+## Project Structure
+
+```text
+week-4-projects-showcase/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── Hero.tsx
+│   │   ├── ProjectsPage.tsx
+│   │   ├── SearchBar.tsx
+│   │   ├── FilterControls.tsx
+│   │   ├── ProjectCard.tsx
+│   │   ├── ProjectDetailsModal.tsx
+│   │   └── Footer.tsx
+│   ├── data/
+│   │   └── projects.ts
+│   └── App.tsx
+├── public/
+├── package.json
+└── README.md
 ```
 
-All records are **fictional sample data** created for demonstration. They are not actual company submissions or approved projects.
+## Getting Started
 
-## Component Architecture
+### Prerequisites
 
-| Component               | File                                        | Responsibility                                          |
-|-------------------------|---------------------------------------------|--------------------------------------------------------|
-| `App`                   | `src/App.tsx`                               | Root layout, composes all sections                      |
-| `Navbar`                | `src/components/Navbar.tsx`                 | Top navigation, branding, mobile menu                   |
-| `Hero`                  | `src/components/Hero.tsx`                    | Landing hero with stats and CTAs                        |
-| `ProjectsPage`          | `src/components/ProjectsPage.tsx`           | State management: search, filter, modal, loading states |
-| `SearchBar`             | `src/components/SearchBar.tsx`               | Search input with clear button                          |
-| `FilterControls`        | `src/components/FilterControls.tsx`         | Track filter buttons, reset, result count               |
-| `ProjectCard`           | `src/components/ProjectCard.tsx`             | Individual project card with thumbnail and links        |
-| `ProjectDetailsModal`   | `src/components/ProjectDetailsModal.tsx`     | Full-project modal with keyboard support                |
-| `Footer`                | `src/components/Footer.tsx`                  | Company footer with links                               |
+- Node.js
+- npm
 
-## Setup Commands
+### Installation
 
-```bash
-# Install dependencies
-npm install
+1. Clone the repository:
 
-# Start the development server
-npm run dev
+   ```bash
+   git clone <your-repository-url>
+   ```
 
-# Build for production
-npm run build
+2. Navigate to the project directory:
 
-# Run the linter
-npm run lint
+   ```bash
+   cd week-4-projects-showcase
+   ```
 
-# Type check
-npm run typecheck
+3. Install dependencies:
 
-# Preview the production build
-npm run preview
-```
+   ```bash
+   npm install
+   ```
 
-## Fetching Approved Projects from Supabase (Future)
+4. Start the development server:
 
-When the organization is ready to display real approved intern projects, data can be
-served from Supabase with proper access controls. Here is the recommended approach:
+   ```bash
+   npm run dev
+   ```
 
-### 1. Create a `projects` table
+Open the local URL displayed in your terminal to view the application.
 
-```sql
-CREATE TABLE public.projects (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  title TEXT NOT NULL,
-  intern_name TEXT NOT NULL,
-  track TEXT NOT NULL,
-  short_description TEXT NOT NULL,
-  full_description TEXT NOT NULL,
-  technologies TEXT[] NOT NULL DEFAULT '{}',
-  thumbnail TEXT,
-  live_url TEXT,
-  github_url TEXT,
-  status TEXT NOT NULL DEFAULT 'pending',
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);
+## Available Scripts
 
-ALTER TABLE public.projects ENABLE ROW LEVEL SECURITY;
-```
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run lint` | Run the configured linter |
+| `npm run typecheck` | Run TypeScript checks, if configured |
+| `npm run preview` | Preview the production build |
 
-### 2. Row Level Security Policies
+## Sample Data
 
-Only **approved** projects should be publicly readable:
+Project data is maintained in `src/data/projects.ts`.
 
-```sql
-CREATE POLICY "select_approved_projects"
-  ON public.projects FOR SELECT
-  TO anon, authenticated
-  USING (status = 'approved');
-```
+Each project record includes an identifier, title, intern name, track, short description, full description, technologies, thumbnail, and optional live-demo or GitHub links.
 
-Write operations (insert/update/delete) should be restricted to authenticated admin roles:
+**Note:** The current gallery contains eight fictional sample projects for demonstration purposes. These are not actual company submissions or approved projects.
 
-```sql
-CREATE POLICY "insert_projects_admin"
-  ON public.projects FOR INSERT
-  TO authenticated
-  WITH CHECK (auth.uid() IS NOT NULL);
+## Future Enhancement: Supabase Integration
 
-CREATE POLICY "update_projects_admin"
-  ON public.projects FOR UPDATE
-  TO authenticated
-  USING (auth.uid() IS NOT NULL)
-  WITH CHECK (auth.uid() IS NOT NULL);
+The application can be extended to retrieve real, approved intern projects from Supabase.
 
-CREATE POLICY "delete_projects_admin"
-  ON public.projects FOR DELETE
-  TO authenticated
-  USING (auth.uid() IS NOT NULL);
-```
+Potential enhancements include:
 
-For production, replace the admin checks with role-based logic (e.g., checking
-`auth.jwt() ->> 'role'` for an admin claim) so only authorized staff can manage records.
+- A database table for project information and approval status
+- Public read access restricted to approved projects
+- Authenticated administrative workflows for managing submissions
+- Supabase Storage for project thumbnails
+- Row Level Security (RLS) policies to protect project data
 
-### 3. Client-side query
+These are proposed enhancements; the current version uses local sample data and does not claim a completed Supabase integration.
 
-```typescript
-import { createClient } from '@supabase/supabase-js';
+For production use, write operations should be restricted to authorized administrators through properly configured role-based access controls.
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+## Deployment
 
-async function fetchApprovedProjects() {
-  const { data, error } = await supabase
-    .from('projects')
-    .select('*')
-    .eq('status', 'approved')
-    .order('created_at', { ascending: false });
-
-  if (error) throw error;
-  return data;
-}
-```
-
-### Security Notes
-
-- Never expose the service role key in client-side code.
-- Always enforce access control at the database level with RLS — do not rely on
-  client-side filtering alone.
-- Validate and sanitize all user-supplied URLs before storing them.
-- Use Supabase Storage with bucket-level policies for project thumbnails.
+The application is deployed on Vercel. The GitHub repository can be imported into Vercel to create another deployment. When deploying this project from a monorepo, select `week-4-projects-showcase` as the root directory.
 
 ## License
 
-This project is a demonstration application. All project data is fictional.
+This is a demonstration application created for learning and project showcase purposes. All sample project data is fictional.
