@@ -1,137 +1,148 @@
 # GitHub Profile Finder
 
-A clean, modern web app to search for any GitHub user and explore their profile, stats, and repositories. Built with React, Vite, TypeScript, and Tailwind CSS.
+A modern, responsive web application that lets users search for GitHub profiles and explore user information, statistics, and repositories in one place.
+
+**[🚀 Live Demo](https://internlytic-phase1.vercel.app/)**
 
 ## Features
 
-- **Username search** — type any GitHub username and press Enter or click Search
-- **Full profile display** — avatar, display name, bio, location, company, blog, Twitter, join date, and stats (repos, followers, following, gists). Unavailable fields are hidden automatically.
-- **Repository cards** — up to 30 most recently updated repos with name, description, programming language (color-coded), star count, fork count, and direct links to GitHub
-- **Loading skeletons** — shimmer placeholders while data loads
-- **Error handling**:
-  - Empty input validation
-  - User-not-found state
-  - Network error state with retry button
-  - GitHub API rate-limit messages with retry guidance
-- **Stale-result prevention** — previous results are cleared on each new search; in-flight requests are aborted so old data never overwrites new data
-- **Responsive** — mobile, tablet, and desktop layouts
-- **Accessible** — labeled controls, keyboard support, semantic HTML, safe external links (`rel="noopener noreferrer"`)
-- **Welcome screen** — explains how to search with clickable example usernames
-- **No backend or API key required** — uses the public GitHub REST API
-
-## API Endpoints
-
-The app fetches data from the public GitHub REST API (no authentication needed):
-
-| Purpose | Endpoint |
-|---|---|
-| User profile | `https://api.github.com/users/{username}` |
-| Repositories | `https://api.github.com/users/{username}/repos?sort=updated&per_page=30` |
-
-> Unauthenticated requests are limited to **60 per hour** per IP. The app detects rate-limit responses and shows a friendly message.
+- **GitHub User Search:** Find GitHub users by username using the search button or Enter key.
+- **Profile Overview:** View avatars, names, bios, locations, companies, and other available profile details.
+- **GitHub Statistics:** Explore public repositories, followers, following, and gists.
+- **Repository Explorer:** Browse up to 30 recently updated repositories with descriptions, programming languages, stars, and forks.
+- **Loading Skeletons:** Smooth loading placeholders while profile data is retrieved.
+- **Error Handling:** Helpful messages for invalid usernames, network issues, and API rate limits.
+- **Responsive Design:** Optimized layouts for mobile, tablet, and desktop screens.
+- **Accessible Interface:** Keyboard support, labeled controls, semantic HTML, and safe external links.
+- **Interactive Welcome Screen:** Start exploring with example GitHub usernames.
+- **No Backend Required:** Uses GitHub's public REST API without requiring an API key.
 
 ## Tech Stack
 
-- **React 19** — UI library
-- **Vite** — build tool & dev server
-- **TypeScript** — type safety
-- **Tailwind CSS v4** — styling
-- **Lucide React** — icons
+- **React 19** — User interface development
+- **Vite** — Development server and build tool
+- **TypeScript** — Type safety and maintainable code
+- **Tailwind CSS v4** — Responsive styling
+- **Lucide React** — Icons
+- **GitHub REST API** — Fetching user profiles and repositories
 
-## Installation
+## Live Demo
+
+Try the deployed application:
+
+**[https://internlytic-phase1.vercel.app/](https://internlytic-phase1.vercel.app/)**
+
+You can search for example users such as `torvalds`, `gaearon`, or `sindresorhus`.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js and npm installed
+- Git installed
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <your-repository-url>
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd week-3-github-finder
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the local URL shown in your terminal, usually `http://localhost:5173`.
+
+## Build for Production
+
+Create an optimized production build:
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd github-profile-finder
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
+npm run build
 ```
 
-The app will be available at `http://localhost:5173`.
-
-## Build & Preview
+Preview the production build locally:
 
 ```bash
-# Build for production
-npm run build
-
-# Preview the production build locally
 npm run preview
 ```
 
-The production build is output to the `dist/` directory.
+The production files are generated in the `dist/` directory.
 
-## Deployment
+## API Endpoints
 
-### Vercel
+The application retrieves data from GitHub's public REST API.
 
-1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket).
-2. Go to [vercel.com](https://vercel.com), import the repository.
-3. Vercel auto-detects Vite — no configuration needed.
-4. Click **Deploy**.
+| Purpose | Endpoint |
+|---|---|
+| User profile | `GET /users/{username}` |
+| User repositories | `GET /users/{username}/repos?sort=updated&per_page=30` |
 
-Or via CLI:
-
-```bash
-npm i -g vercel
-vercel
-```
-
-### Netlify
-
-1. Push your code to a Git repository.
-2. Go to [netlify.com](https://netlify.com), import the repository.
-3. Set the build command to `npm run build` and the publish directory to `dist`.
-4. Click **Deploy**.
-
-Or via CLI:
-
-```bash
-npm i -g netlify-cli
-netlify deploy --build --prod
-```
-
-### GitHub Pages
-
-```bash
-npm run build
-# Deploy the dist/ folder to GitHub Pages using your preferred action or tool
-```
+Unauthenticated GitHub API requests are generally limited to 60 requests per hour per IP address. The application handles rate-limit responses and provides guidance when the limit is reached.
 
 ## Project Structure
 
-```
-src/
-├── components/
-│   ├── SearchBar.tsx       # Username input with Enter-key support
-│   ├── ProfileHeader.tsx   # Avatar, bio, stats, metadata
-│   ├── RepoCard.tsx        # Single repository card
-│   ├── RepoList.tsx        # Grid of repository cards
-│   ├── Skeletons.tsx       # Loading skeleton placeholders
-│   ├── ErrorState.tsx      # Error display (not found, rate limit, network)
-│   └── WelcomeScreen.tsx   # Initial guide screen with examples
-├── api.ts                  # GitHub API fetch functions + error mapping
-├── types.ts                # TypeScript interfaces
-├── App.tsx                 # Main app component & state management
-├── main.tsx                # React entry point
-└── index.css               # Tailwind CSS + theme + animations
+```text
+week-3-github-finder/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── SearchBar.tsx
+│   │   ├── ProfileHeader.tsx
+│   │   ├── RepoCard.tsx
+│   │   ├── RepoList.tsx
+│   │   ├── Skeletons.tsx
+│   │   ├── ErrorState.tsx
+│   │   └── WelcomeScreen.tsx
+│   ├── api.ts
+│   ├── types.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── package.json
+└── README.md
 ```
 
-## Testing Scenarios
+## Testing
 
-| Scenario | How to test |
+Try these scenarios to verify the application:
+
+| Scenario | Test |
 |---|---|
-| Valid username | Search for `torvalds`, `gaearon`, or `sindresorhus` |
-| Invalid username | Search for a nonsense string like `xxnonexistentuserxx` |
-| Empty input | Click Search without typing anything |
-| Rate limit | Make 60+ searches rapidly to hit the API limit |
-| Network error | Disable your internet connection and search |
+| Valid username | Search `torvalds` or `gaearon` |
+| Invalid username | Search a nonexistent username |
+| Empty input | Click Search without entering a username |
+| Network error | Disconnect from the internet and search |
+| API rate limit | Test after reaching GitHub's unauthenticated request limit |
+
+## Deployment
+
+This project is deployed on **Vercel**.
+
+To deploy your own copy:
+
+1. Push the project to GitHub.
+2. Import the repository into Vercel.
+3. Set the project root directory to `week-3-github-finder` if deploying from a monorepo.
+4. Use `npm run build` as the build command and `dist` as the output directory.
+5. Deploy the application.
 
 ## License
 
-MIT — free to use and modify.
+This project is licensed under the MIT License.
